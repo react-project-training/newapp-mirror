@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {ThemeProvider} from '@material-ui/core/styles';
+import theme from './theme'
+import 'fontsource-roboto';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+  <ThemeProvider theme={theme}>
+   <Route exact path="/"><App/></Route>
+  </ThemeProvider>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
