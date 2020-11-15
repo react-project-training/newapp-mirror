@@ -236,7 +236,7 @@ export default withWidth()( withStyles(styles)(class NavBar extends React.Compon
             
             {/*Render Left set of buttons*/}
             <Hidden xsDown>
-              {this.leftb(this.props.width=='lg'?-8:0)}
+              {this.leftb(this.props.width=='md'?-8:0)}
           </Hidden>
           
           {/*Render Right set of buttons(Log In,Menu,INR etc.) for larger screens*/}
