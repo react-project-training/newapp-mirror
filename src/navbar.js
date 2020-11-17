@@ -4,14 +4,11 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box'
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search'
 import {Menu,MenuItem} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Logo from "./assets/trivago.png"
 import ExpandMore from '@material-ui/icons/ExpandMore'
 import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
@@ -22,7 +19,6 @@ import {Dialog,ListItem,List,ListItemText,Divider} from '@material-ui/core/'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Slide from '@material-ui/core/Slide';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import { ArrowBackIos } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 /*Styling Material UI components*/
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -94,7 +90,7 @@ export default withWidth()( withStyles(styles)(class NavBar extends React.Compon
     }
   }
   setPage=()=>{//render toolbar based on which page it is
-    if(this.props.page=="main"){
+    if(this.props.page==="main"){
         this.appBarHeight=64;
       }
       else{
@@ -111,13 +107,13 @@ export default withWidth()( withStyles(styles)(class NavBar extends React.Compon
     return(
       <Box mx={m} className={classes.title}>
         <Link to='/'>
-            <Button color="inherit" className={`${classes.menuButton} ${classes.space}`} style={{borderBottom:this.props.page=="main"?"3px solid #2792B9":'0'}}>
+            <Button color="inherit" className={`${classes.menuButton} ${classes.space}`} style={{borderBottom:this.props.page==="main"?"3px solid #2792B9":'0'}}>
               <SearchIcon/>
               <Typography variant="button" color="textPrimary"> Hotel Search</Typography>
             </Button>
         </Link>
         <Link to='/discover'>
-            <Button color="inherit" className={classes.menuButton} style={{borderBottom:this.props.page=="discover"?"3px solid #007FAD":'0',minHeight:this.props.page=="main"?64:54}}>
+            <Button color="inherit" className={classes.menuButton} style={{borderBottom:this.props.page==="discover"?"3px solid #007FAD":'0',minHeight:this.props.page==="main"?64:54}}>
               <RoomOutlinedIcon/>
               <Typography variant="button" style={{paddingLeft:"5px"}}color="textPrimary">Discover</Typography>
             </Button>
@@ -128,7 +124,7 @@ export default withWidth()( withStyles(styles)(class NavBar extends React.Compon
 
   rightb(){//displays menu and login only if in main page
     const {classes}=this.props;
-    if(this.props.page=="main"){
+    if(this.props.page==="main"){
       return(
         <div>
               <Button color="white" className={classes.menuButton}>Log In</Button>
@@ -163,7 +159,7 @@ export default withWidth()( withStyles(styles)(class NavBar extends React.Compon
 
   rightsmall(){
     const {classes}=this.props;
-    if(this.props.page=="main"){
+    if(this.props.page==="main"){
       return(<Button color="inherit" className={classes.menuButton} >
           <PersonOutlineOutlinedIcon/>
       </Button>)
@@ -172,18 +168,18 @@ export default withWidth()( withStyles(styles)(class NavBar extends React.Compon
 
   logo(){//displays logo all time only if in discover page
     const {classes}=this.props;
-    if(this.props.page=="main"){
+    if(this.props.page==="main"){
       return(
         <Hidden mdUp>
-              <Box mx={-2}width='75px' style={{flexGrow:this.props.width=='xs'?1:0 }}>
-              <img src={Logo} alt="logo" width="100px" className={classes.logo} visible={false}/>
+              <Box mx={-2}width='75px' style={{flexGrow:this.props.width==='xs'?1:0 }}>
+              <img src={Logo} alt="logo" width="100px" className={classes.logo} />
               </Box>
         </Hidden>
       )
     }
     else{
       return(
-        <Box mx={-2} mr={this.props.width=='lg'?5:0}width='75px' style={{flexGrow:this.props.width=='xs'?1:0 }}>
+        <Box mx={-2} mr={this.props.width==='lg'?5:0}width='75px' style={{flexGrow:this.props.width==='xs'?1:0 }}>
               <img src={Logo} alt="logo" width="100px" className={classes.logo} visible={false}/>
               </Box>
       )
@@ -236,7 +232,7 @@ export default withWidth()( withStyles(styles)(class NavBar extends React.Compon
             
             {/*Render Left set of buttons*/}
             <Hidden xsDown>
-              {this.leftb(this.props.width=='md'?-8:0)}
+              {this.leftb(this.props.width==='md'?-8:0)}
           </Hidden>
           
           {/*Render Right set of buttons(Log In,Menu,INR etc.) for larger screens*/}
